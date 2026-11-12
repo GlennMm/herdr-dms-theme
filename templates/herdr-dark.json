@@ -1,0 +1,38 @@
+{
+  "background": "{{colors.background.dark.hex}}",
+  "foreground": "{{colors.on_surface.dark.hex}}",
+  "selection": "{{colors.primary_container.dark.hex}}",
+  "cursor": "{{colors.primary.dark.hex}}",
+  "ansi": [
+    "{{dank16.color0.dark.hex}}", "{{dank16.color1.dark.hex}}", "{{dank16.color2.dark.hex}}", "{{dank16.color3.dark.hex}}",
+    "{{dank16.color4.dark.hex}}", "{{dank16.color5.dark.hex}}", "{{dank16.color6.dark.hex}}", "{{dank16.color7.dark.hex}}",
+    "{{dank16.color8.dark.hex}}", "{{dank16.color9.dark.hex}}", "{{dank16.color10.dark.hex}}", "{{dank16.color11.dark.hex}}",
+    "{{dank16.color12.dark.hex}}", "{{dank16.color13.dark.hex}}", "{{dank16.color14.dark.hex}}", "{{dank16.color15.dark.hex}}"
+  ],
+  "colors": {
+    "background": "{{colors.background.dark.hex}}",
+    "canvas": "{{colors.surface_container_low.dark.hex}}",
+    "chrome": "{{colors.surface_container_low.dark.hex}}",
+    "surface": "{{colors.surface_container.dark.hex}}",
+    "popover": "{{colors.surface_container_high.dark.hex}}",
+    "raised": "{{colors.surface_container_high.dark.hex}}",
+    "hover": "{{colors.surface_container_highest.dark.hex}}",
+    "selected": "{{colors.secondary_container.dark.hex}}",
+    "border": "{{colors.outline_variant.dark.hex}}",
+    "input": "{{colors.outline.dark.hex}}",
+    "foreground": "{{colors.on_surface.dark.hex}}",
+    "muted": "{{colors.on_surface_variant.dark.hex}}",
+    "dim": "{{colors.outline.dark.hex}}",
+    "accent": "{{colors.primary.dark.hex}}",
+    "accent_foreground": "{{colors.on_primary.dark.hex}}",
+    "solid": "{{colors.primary.dark.hex}}",
+    "solid_foreground": "{{colors.on_primary.dark.hex}}",
+    "selection": "{{colors.primary_container.dark.hex}}",
+    "ring": "{{colors.primary.dark.hex}}",
+    "working": "{{colors.tertiary.dark.hex}}",
+    "blocked": "{{colors.error.dark.hex}}",
+    "done": "{{dank16.color2.dark.hex}}",
+    "idle": "{{colors.outline.dark.hex}}",
+    "unknown": "{{colors.outline.dark.hex}}"
+  }
+}

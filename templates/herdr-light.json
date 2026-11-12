@@ -1,0 +1,38 @@
+{
+  "background": "{{colors.background.light.hex}}",
+  "foreground": "{{colors.on_surface.light.hex}}",
+  "selection": "{{colors.primary_container.light.hex}}",
+  "cursor": "{{colors.primary.light.hex}}",
+  "ansi": [
+    "{{dank16.color0.light.hex}}", "{{dank16.color1.light.hex}}", "{{dank16.color2.light.hex}}", "{{dank16.color3.light.hex}}",
+    "{{dank16.color4.light.hex}}", "{{dank16.color5.light.hex}}", "{{dank16.color6.light.hex}}", "{{dank16.color7.light.hex}}",
+    "{{dank16.color8.light.hex}}", "{{dank16.color9.light.hex}}", "{{dank16.color10.light.hex}}", "{{dank16.color11.light.hex}}",
+    "{{dank16.color12.light.hex}}", "{{dank16.color13.light.hex}}", "{{dank16.color14.light.hex}}", "{{dank16.color15.light.hex}}"
+  ],
+  "colors": {
+    "background": "{{colors.background.light.hex}}",
+    "canvas": "{{colors.surface_container_low.light.hex}}",
+    "chrome": "{{colors.surface_container_low.light.hex}}",
+    "surface": "{{colors.surface_container.light.hex}}",
+    "popover": "{{colors.surface_container_high.light.hex}}",
+    "raised": "{{colors.surface_container_high.light.hex}}",
+    "hover": "{{colors.surface_container_highest.light.hex}}",
+    "selected": "{{colors.secondary_container.light.hex}}",
+    "border": "{{colors.outline_variant.light.hex}}",
+    "input": "{{colors.outline.light.hex}}",
+    "foreground": "{{colors.on_surface.light.hex}}",
+    "muted": "{{colors.on_surface_variant.light.hex}}",
+    "dim": "{{colors.outline.light.hex}}",
+    "accent": "{{colors.primary.light.hex}}",
+    "accent_foreground": "{{colors.on_primary.light.hex}}",
+    "solid": "{{colors.primary.light.hex}}",
+    "solid_foreground": "{{colors.on_primary.light.hex}}",
+    "selection": "{{colors.primary_container.light.hex}}",
+    "ring": "{{colors.primary.light.hex}}",
+    "working": "{{colors.tertiary.light.hex}}",
+    "blocked": "{{colors.error.light.hex}}",
+    "done": "{{dank16.color2.light.hex}}",
+    "idle": "{{colors.outline.light.hex}}",
+    "unknown": "{{colors.outline.light.hex}}"
+  }
+}
