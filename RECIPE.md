@@ -93,7 +93,17 @@ so yours will differ.
 - `install.sh` adds the three templates to `~/.config/matugen/config.toml` inside a marked
   block, with output in `~/.config/herdr-app/themes/`. DMS merges that file into every
   regeneration when *Run user matugen templates* is on (the default). Herdr hot-reloads
-  `themes/*.json`, so no post-hook is needed.
+  `themes/*.json`, so the colors need no post-hook.
+- `hooks/herdr-opacity.py` is the `post_hook` on all three templates. It makes the window
+  follow DMS's terminal opacity, 10 to 100 percent (`terminalOpacity`, default 100). It
+  takes the value from the `--terminal-opacity N` flag of the `dms matugen generate`
+  process it runs under (DMS omits the flag at 100), else from
+  `~/.config/DankMaterialShell/settings.json`; a number as its first argument overrides
+  both. It then writes:
+  - `layouts/dms.json`: `terminal_opacity` = percent / 100, `window_blur` = percent < 100
+  - each `themes/dms*.json`, in `colors` only: `background` gets alpha `00` (the window
+    stays opaque unless this color is fully transparent), `canvas` and `chrome` get alpha
+    0.8 × percent (`BAR_RATIO`). At 100 all three are plain `#rrggbb` again.
 
 ## Watch out
 
@@ -103,8 +113,14 @@ so yours will differ.
   plain strings, not `{hex}` objects.
 - `dms ipc call theme dark` does nothing when DMS is already dark. To force the first
   generation, change the wallpaper or run `dms ipc call theme toggle` twice.
-- Theme files must use plain `#rrggbb`. Herdr doesn't accept the `99` alpha suffix that the
-  DMS VS Code template puts on its selection color.
+- The templates write plain `#rrggbb`; the hook adds alpha afterwards. Herdr accepts
+  `#rrggbbaa` in a theme's `colors` block (used for `background`, `canvas`, `chrome`).
+  Keep the top-level `background`, `selection` and `ansi` plain: Herdr didn't accept the
+  `99` alpha suffix that the DMS VS Code template puts on its selection color.
+- The opacity slider is DMS's setting for every terminal it themes (kitty, ghostty, foot,
+  alacritty), so Herdr can't be translucent on its own through it.
+- The hook rewrites `layouts/dms.json` whole (2-space JSON), and all three templates run
+  it, so it must stay idempotent and write atomically.
 - `dank16.color0` equals `background` in dark mode, so ANSI black text on the default
   background is invisible. The same is true in every DMS terminal theme.
 - Cloning `main` freezes its structure at the version cloned (0.1.15) and stops Herdr's
@@ -119,6 +135,10 @@ so yours will differ.
 - After a DMS regeneration, `~/.config/herdr-app/themes/dms.json` exists and is valid JSON
   with no `{{`. Its `background` equals `colors.<mode>.background` in
   `~/.cache/dms/dms-colors.json`, and its `ansi` matches that file's `dank16`.
+- `hooks/herdr-opacity.py 75` sets `terminal_opacity` 0.75 and `window_blur` true in
+  `layouts/dms.json` and gives `colors.canvas` the suffix `99` in each theme;
+  `hooks/herdr-opacity.py 100` removes the suffixes and sets `terminal_opacity` 1.
+  Moving DMS's Opacity slider does the same without running anything by hand.
 - `herdr-app do layout.switch '{"name":"dms"}'` shows the window in the wallpaper's colors:
   - the sidebar is `surface_container_low`
   - the focused pane border is `primary`

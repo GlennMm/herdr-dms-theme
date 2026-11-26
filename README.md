@@ -23,6 +23,9 @@ herdr reloads theme files live, so a wallpaper change re-themes herdr right away
 - `themes/` — a snapshot of the generated themes, so the layout works before DMS has run.
 - `templates/` and `install.sh` — the matugen templates that keep the themes in sync with
   your wallpaper.
+- `hooks/herdr-opacity.py` — runs after each regeneration and makes the layout follow
+  DMS's terminal opacity (Settings → Theme → Terminal → Opacity). Below 100 the window
+  turns translucent and blurred; at 100 it is opaque.
 - `RECIPE.md` — the build brief for agents.
 - `preview/` — the scripts used to draw the screenshot.
 

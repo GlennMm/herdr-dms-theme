@@ -23,18 +23,21 @@ grep -q '^\[config\]' "$MATUGEN_CONFIG" || printf '[config]\n\n' >> "$MATUGEN_CO
 
 cat >> "$MATUGEN_CONFIG" <<TOML
 $BEGIN
-# Follows DMS's current light/dark mode
+# Follows DMS's current light/dark mode; the hook applies DMS's terminal opacity
 [templates.herdr-dms]
 input_path = '$HERE/templates/herdr.json'
 output_path = '$THEMES_DIR/dms.json'
+post_hook = '$HERE/hooks/herdr-opacity.py'
 
 [templates.herdr-dms-dark]
 input_path = '$HERE/templates/herdr-dark.json'
 output_path = '$THEMES_DIR/dms-dark.json'
+post_hook = '$HERE/hooks/herdr-opacity.py'
 
 [templates.herdr-dms-light]
 input_path = '$HERE/templates/herdr-light.json'
 output_path = '$THEMES_DIR/dms-light.json'
+post_hook = '$HERE/hooks/herdr-opacity.py'
 $END
 TOML
 
